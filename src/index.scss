@@ -1,0 +1,25 @@
+header {
+  background-color: lightcoral;
+  display: flex;
+  justify-content: space-between;
+}
+
+main {
+  // background-color: lightblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  section {
+    border: 1px solid black;
+  }
+}
+
+.user-inputs {
+  height: 400px;
+  width: 400px;
+}
+
+.charts-area {
+  height: 400px;
+  width: 400px;
+}
