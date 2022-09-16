@@ -22,8 +22,16 @@ In CalPal, users will be able to:
 In addition, this project will include:
  - Saving functionality, allowing users to save their built bowls
  - A comparison feature that allows users to view different saved bowls side-by-side, even across different chains
+ - A production README
+
+## Technologies, Libraries, APIs
+
+ - JavaScript
+ - Canvas for rendering the nutritional charts
+ - Possibly D3 for rendering the nutritional charts
 
 ## Implementation Timeline
+
 (tentative and aggressive)
  - Thursday Afternoon: Submit initial proposal, create repo, mockup wireframe, and begin final proposal
  - Friday Afternoon & Weekend: Complete initial project setup, research APIs
