@@ -1,9 +1,5 @@
-import { chartUtil } from "./scripts/chartUtil"
+import { CalPalView } from "./scripts/calpal-view"
 
 document.addEventListener("DOMContentLoaded", () => {
-  chartUtil.setupChart();
-  const toggleMacroChart = document.getElementById('toggleMacroChart');
-  toggleMacroChart.addEventListener('click', () => {
-    chartUtil.toggleChart();
-  });
+  CalPalView.initialize();
 })
