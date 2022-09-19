@@ -10,7 +10,6 @@ export const chartUtil = {
     this.borderColor = ['red', 'orange', 'blue'];
     this.setDoughnut();
     this.setupToggleChart();
-    this.selectedItems = document.getElementById('selected-item');
   },
 
   refresh () {

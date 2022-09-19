@@ -11,7 +11,6 @@ export class Meal {
 
   pushItem (itemObject) {
     this.itemObjects.push(itemObject);
-    this.printItems()
     this.totalCals += parseInt(itemObject['Calories']);
     this.totalProtein += parseInt(itemObject['Protein']);
     this.totalFat += parseInt(itemObject['Total Fat']);
@@ -19,9 +18,14 @@ export class Meal {
     chartUtil.refresh();
   }
 
-  popItem (itemObjet) {
-    this.itemObjects.delete(itemObject);
-    this.printItems();
+  popItem (itemObject) {
+    // this.printItems();
+    this.itemObjects.splice(this.itemObjects.indexOf(itemObject), 1);
+    this.totalCals -= parseInt(itemObject['Calories']);
+    this.totalProtein -= parseInt(itemObject['Protein']);
+    this.totalFat -= parseInt(itemObject['Total Fat']);
+    this.totalCarbs -= parseInt(itemObject['Carbohydrates']);
+    chartUtil.refresh();
   }
 
   printItems () {
