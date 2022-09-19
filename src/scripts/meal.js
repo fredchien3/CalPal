@@ -19,7 +19,6 @@ export class Meal {
   }
 
   popItem (itemObject) {
-    // this.printItems();
     this.itemObjects.splice(this.itemObjects.indexOf(itemObject), 1);
     this.totalCals -= parseInt(itemObject['Calories']);
     this.totalProtein -= parseInt(itemObject['Protein']);

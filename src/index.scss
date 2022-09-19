@@ -23,12 +23,33 @@ main {
   }
 }
 
-.user-inputs-wrapper {
+#user-inputs-wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 400px;
+  flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+  height: 500px;
   width: 400px;
+}
+
+.toggle-panel {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  transition: 0.3s;
+}
+
+.active, .accordion:hover {
+  background-color: lightblue;
+}
+
+.panel {
+  overflow: hidden;
+  display: none;
+}
+
+.show-panel {
+  display: flex;
 }
 
 .charts-wrapper {
