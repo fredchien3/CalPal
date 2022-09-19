@@ -1,7 +1,16 @@
+ul {
+  padding: 0;
+  margin: 0;
+}
+
 header {
-  background-color: lightcoral;
+  background-color: lightpink;
   display: flex;
   justify-content: space-between;
+  h1 {
+    padding: 0;
+    margin: 0;
+  }
 }
 
 main {
@@ -15,11 +24,29 @@ main {
 }
 
 .user-inputs-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 400px;
   width: 400px;
 }
 
-.charts-area {
-  height: 400px;
+.charts-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
   width: 400px;
+}
+.macros-chart-wrapper {
+  width: 200px;
+}
+
+#macros-chart {
+  border: 1px solid black;
+}
+
+.micros-chart-wrapper {
+  border: 1px solid black;
 }

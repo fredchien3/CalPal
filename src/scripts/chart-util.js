@@ -3,12 +3,14 @@ import Chart from 'chart.js/auto';
 export const chartUtil = {
   setupChart (meal) {
     this.meal = meal;
-    this.macroCtx = document.getElementById('macroChart').getContext('2d');
+    this.macroCtx = document.getElementById('macros-chart').getContext('2d');
     this.macroData = this.meal.macros();
+    this.labels = ['Protein', 'Fat', 'Carbs'];
     this.backgroundColor = ['pink', 'yellow', 'lightblue'];
     this.borderColor = ['red', 'orange', 'blue'];
     this.setDoughnut();
     this.setupToggleChart();
+    this.selectedItems = document.getElementById('selected-item');
   },
 
   refresh () {
@@ -17,7 +19,7 @@ export const chartUtil = {
   },
 
   setupToggleChart () {
-    const toggleMacroChart = document.getElementById('toggleMacroChart');
+    const toggleMacroChart = document.getElementById('toggle-macros-chart');
     toggleMacroChart.addEventListener('click', () => {
       this.toggleChart();
     });
@@ -37,10 +39,10 @@ export const chartUtil = {
     this.macroChart = new Chart(this.macroCtx, {
       type: 'bar',
       data: {
-        labels: ['Protein', 'Fat', 'Carbohydrates'],
+        labels: this.labels,
         datasets: [{
             label: '',
-            data: this.macroData,
+            data: this.meal.macros(),
             backgroundColor: this.backgroundColor,
             borderColor: this.backgroundColor,
             hoverBorderColor: this.borderColor,
@@ -51,6 +53,11 @@ export const chartUtil = {
       },
       options: {
         indexAxis: 'y',
+        plugins: {
+          legend: {
+            display: false,
+          }
+        }
       }
     });
   },
@@ -59,10 +66,10 @@ export const chartUtil = {
     this.macroChart = new Chart(this.macroCtx, {
       type: 'doughnut',
       data: {
-        labels: ['Protein', 'Fat', 'Carbohydrates'],
+        labels: this.labels,
         datasets: [{
             label: 'macros',
-            data: this.macroData,
+            data: this.meal.macros(),
             backgroundColor: this.backgroundColor,
             borderColor: this.backgroundColor,
             borderRadius: 50,
@@ -73,7 +80,7 @@ export const chartUtil = {
         },
         options: {
           cutout: '50%',
-          radius: '50%',
+          radius: '75%',
           rotation: 225
       }
     });

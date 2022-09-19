@@ -6,6 +6,6 @@ export const CalPalView = {
   initialize () {
     this.meal = new Meal;
     chartUtil.setupChart(this.meal);
-    userInput.setupButtons(0, this.meal);
+    userInput.setupButtons(1, this.meal);
   }
 }
