@@ -1,37 +1,52 @@
-import cava from "/src/foods/cava.json"
+import cava from '/src/foods/cava.json'
 
 export const userInput = {
-  setupButtons (meal) {
+  initialize (meal) {
     this.meal = meal;
-    this.userInputs = document.getElementById('user-inputs-wrapper');
+    this.slideshowWrapper = document.getElementById('slideshow-wrapper');
     this.selectedItemsDisplay = document.getElementById('selected-items-display');
 
-    cava.steps.forEach(step => {
-      const togglePanel = document.createElement("button");
-      togglePanel.className = "toggle-panel";
-      togglePanel.innerText = step.name;
+    this.slideIdx = 1;
+    this.setupSlides();
+    this.displaySlide(this.slideIdx);
+  },
 
-      this.userInputs.appendChild(togglePanel);
-      const ul = document.createElement("ul");
-      ul.className = "panel";
-      ul.id = step.name;
+  setupSlides () {
+    const numberOfSlides = cava.steps.length;
+
+    cava.steps.forEach((step, i) => {
+      const stepNumber = i + 1;
+
+      const slideDiv = document.createElement('div');
+      slideDiv.className = 'slide-div';
+
+      const slideNum = document.createElement('div');
+      slideNum.className = 'slide-number';
+      slideNum.innerText = stepNumber + ' / ' + numberOfSlides;
+      slideDiv.appendChild(slideNum);
+
+      const slideTitle = document.createElement('div');
+      slideTitle.className = "step-title";
+      slideTitle.innerText = step.name;
+      slideDiv.appendChild(slideTitle);
+      
+      const stepChoices = document.createElement('div');
+      stepChoices.className = 'choices-div'
       step.items.forEach(itemObject => {
-        ul.appendChild(this.generateButton(itemObject, ul));
-      });
-      this.userInputs.appendChild(ul);
-
-      togglePanel.addEventListener('click', () => {
-        togglePanel.classList.toggle("active");
-        ul.classList.toggle("show-panel")
-      });
+        stepChoices.appendChild(this.generateButton(itemObject));
+      })
+      slideDiv.appendChild(stepChoices);
+      
+      this.slideshowWrapper.appendChild(slideDiv);
     })
+    this.setupPrevAndNextButtons();
+    this.setupIndexDots(numberOfSlides);
   },
   
-  generateButton (itemObject, ul) {
-    const button = document.createElement("button");
+  generateButton (itemObject) {
+    const button = document.createElement('button');
     button.className = itemObject.Item;
     button.innerText = itemObject.Item;
-    ul.appendChild(button);
     button.addEventListener('click', () => {
       this.handleItemSelect(itemObject);
     })
@@ -40,8 +55,8 @@ export const userInput = {
 
   handleItemSelect (itemObject) {
     this.meal.pushItem(itemObject);
-    const ul = document.createElement("ul")
-    const button = document.createElement("button");
+    const ul = document.createElement('ul')
+    const button = document.createElement('button');
     button.className = itemObject.Item;
     button.innerText = itemObject.Item;
     this.selectedItemsDisplay.appendChild(button);
@@ -49,5 +64,59 @@ export const userInput = {
       this.meal.popItem(itemObject);
       this.selectedItemsDisplay.removeChild(button);
     })
+  },
+
+  setupPrevAndNextButtons () {
+    const prevButton = document.createElement('a');
+    prevButton.className = 'prev';
+    prevButton.addEventListener('click', () => this.incrementSlide(-1));
+    prevButton.innerText = '<';
+    const nextButton = document.createElement('a');
+    nextButton.className = 'next';
+    nextButton.addEventListener('click', () => this.incrementSlide(1));
+    nextButton.innerText = '>';
+    this.slideshowWrapper.appendChild(prevButton);
+    this.slideshowWrapper.appendChild(nextButton);
+  },
+
+  setupIndexDots (num) {
+    const indexDots = document.createElement('div');
+    for (let i = 1; i <= num; i++) {
+      const dot = document.createElement('span');
+      dot.className = 'dot';
+      dot.addEventListener('click', () => this.currentSlide(i));
+      indexDots.appendChild(dot);
+    }
+    this.slideshowWrapper.appendChild(indexDots);
+  },
+
+  incrementSlide (num) {
+    this.slideIdx += num;
+    this.displaySlide(this.slideIdx);
+  },
+
+  currentSlide (num) {
+    this.slideIdx -= num;
+    this.displaySlide(this.slideIdx);
+  },
+
+  displaySlide (num) {
+    console.log('displaying slide' + num)
+    let slides = document.getElementsByClassName('slide-div');
+    let dots = document.getElementsByClassName('dot');
+
+    if (num > slides.length) this.slideIdx = 1;
+    if (num < 1) { this.slideIdx = slides.length };
+
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+
+    for (let i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+
+    slides[this.slideIdx-1].style.display = "flex";
+    dots[this.slideIdx-1].className += " active";
   }
 }
