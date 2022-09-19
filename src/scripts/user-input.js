@@ -101,7 +101,6 @@ export const userInput = {
   },
 
   displaySlide (num) {
-    console.log('displaying slide' + num)
     let slides = document.getElementsByClassName('slide-div');
     let dots = document.getElementsByClassName('dot');
 
