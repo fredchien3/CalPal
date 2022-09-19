@@ -34,11 +34,21 @@ main {
 .charts-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  // justify-content: center;
   align-items: center;
   height: 500px;
   width: 400px;
 }
+
+.calorie-count-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h2 {
+    margin-right: 5px;
+  }
+}
+
 .macros-chart-wrapper {
   width: 200px;
 }

@@ -5,15 +5,19 @@ export const chartUtil = {
     this.meal = meal;
     this.macroCtx = document.getElementById('macros-chart').getContext('2d');
     this.macroData = this.meal.macros();
+    this.calorieCount = document.getElementById('calorie-count');
+
     this.labels = ['Protein', 'Fat', 'Carbs'];
     this.backgroundColor = ['pink', 'yellow', 'lightblue'];
     this.borderColor = ['red', 'orange', 'blue'];
+
     this.setDoughnut();
     this.setupToggleChart();
   },
 
   refresh () {
     this.macroChart.data.datasets[0].data = this.meal.macros();
+    this.calorieCount.innerText = this.meal.totalCals;
     this.macroChart.update();
   },
 

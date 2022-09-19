@@ -19,7 +19,7 @@ export const userInput = {
     button.innerText = itemObject.Item;
     this.userInputsUl.appendChild(button);
     button.addEventListener('click', () => {
-      this.handleItemSelect (itemObject);
+      this.handleItemSelect(itemObject);
     })
   },
 
