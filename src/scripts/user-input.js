@@ -113,7 +113,7 @@ export const userInput = {
   },
 
   currentSlide (num) {
-    this.slideIdx -= num;
+    this.slideIdx = num;
     this.displaySlide(this.slideIdx);
   },
 
