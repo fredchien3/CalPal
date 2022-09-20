@@ -98,7 +98,7 @@ textarea {
 #user-inputs-wrapper {
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 50%;
 }
 
 #slideshow-wrapper {
@@ -126,9 +126,8 @@ textarea {
   position: absolute;
   background: hsla(1, 100%, 71%, 0.50);
   top: 50%;
-  padding: 16px;
+  padding: 10px;
   color: white;
-  border-radius: 3px;
   user-select: none;
   transition: 0.3s;
 }
@@ -138,24 +137,37 @@ textarea {
   transition: 0.3s;
 }
 
+.prev:active, .next:active {
+  background: #67568c;
+  transition: 0.3s;
+}
+
 .prev {
+  border-radius: 0px 10px 10px 0px;
   left: 0;
 }
 
 .next {
+  border-radius: 10px 0px 0px 10px;
   right: 0;
-}
-
-.step-title {
-  position: absolute;
-  top: 30px;
-  left: 50px;
 }
 
 .slide-number {
   position: absolute;
-  top: 30px;
-  left: 10px;
+  top: 40px;
+  left: 30px;
+  font-family: 'Noto Sans', sans-serif;
+  color: #67568c;
+  font-size: 12px;
+}
+
+.step-title {
+  position: absolute;
+  top: 40px;
+  left: 80px;
+  font-family: 'Noto Sans', sans-serif;
+  color: #1f1235;
+  font-size: 24px;
 }
 
 .dot {
@@ -170,7 +182,7 @@ textarea {
 }
 
 .active, .dot:hover {
-  background-color: lightpink;
+  background-color: #ff6e6c;
 }
 
 .choices-div {
@@ -178,6 +190,7 @@ textarea {
   justify-content: center;
   flex-wrap: wrap;
   width: 85%;
+  margin-top: 70px;
 }
 
 .user-input-button {
@@ -193,7 +206,7 @@ textarea {
   height: 70px;
   width: 120px;
   font-size: 14px;
-  margin: 15px;
+  margin: 10px 15px 10px 15px;
   transition: 0.2s;
 }
 
@@ -234,12 +247,29 @@ textarea {
 #selected-items-display button:active {
   text-decoration: line-through;
 }
+
+#reset-meal {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #67568c;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 600;
+}
+
+#reset-meal:hover {
+  text-decoration: underline;
+}
+
+#reset-meal:active {
+  text-decoration: underline;
+  color: black;
+}
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
 body {
-  background-color: #FFFFFF;
-  color: white;
+  background-color: #e2daeb;
 }
 
 header {
@@ -248,11 +278,25 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0px 30px 0px 30px;
+  border-bottom: 5px solid #1f1235;
 }
 
 header h1 {
   font-size: 48px;
   font-family: "Dangrek", cursive;
+  color: white;
+}
+
+header nav a i {
+  font-size: 40px;
+  margin-left: 30px;
+  color: white;
+  transition: color 0.5s ease;
+}
+
+header nav a i:hover {
+  color: #1f1235;
+  transition: color 0.5s ease;
 }
 
 main {
@@ -263,6 +307,11 @@ main {
 }
 
 main section {
-  border: 1px solid lightblue;
   height: 600px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+main section:first-of-type {
+  border-right: 5px solid #1f1235;
 }

@@ -80,12 +80,18 @@ export const userInput = {
   setupPrevAndNextButtons () {
     const prevButton = document.createElement('a');
     prevButton.className = 'prev';
+    const leftIcon = document.createElement('i');
+    leftIcon.className = 'fa-solid fa-caret-left'
+    prevButton.appendChild(leftIcon);
     prevButton.addEventListener('click', () => this.incrementSlide(-1));
-    prevButton.innerText = '<';
     const nextButton = document.createElement('a');
     nextButton.className = 'next';
+    const rightIcon = document.createElement('i');
+    rightIcon.className = 'fa-solid fa-caret-right'
+    nextButton.appendChild(rightIcon);
+
+
     nextButton.addEventListener('click', () => this.incrementSlide(1));
-    nextButton.innerText = '>';
     this.slideshowWrapper.appendChild(prevButton);
     this.slideshowWrapper.appendChild(nextButton);
   },
