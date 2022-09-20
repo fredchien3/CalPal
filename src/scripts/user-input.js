@@ -9,6 +9,11 @@ export const userInput = {
     this.slideIdx = 1;
     this.setupSlides();
     this.displaySlide(this.slideIdx);
+    this.resetButton = document.getElementById('reset-meal');
+    this.resetButton.addEventListener('click', () => {
+      meal.reset();
+      this.clearItemsDisplay();
+    })
   },
 
   setupSlides () {
@@ -64,6 +69,10 @@ export const userInput = {
       this.meal.popItem(itemObject);
       this.selectedItemsDisplay.removeChild(button);
     })
+  },
+
+  clearItemsDisplay () {
+    while (this.selectedItemsDisplay.firstChild) this.selectedItemsDisplay.removeChild(this.selectedItemsDisplay.firstChild);
   },
 
   setupPrevAndNextButtons () {

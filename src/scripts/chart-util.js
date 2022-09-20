@@ -7,8 +7,6 @@ export const chartUtil = {
     this.setupToggleChart();
     this.renderGramMicros();
     this.renderMilligramMicros();
-    this.resetButton = document.getElementById('reset-meal');
-    this.resetButton.addEventListener('click', () => meal.reset())
   },
 
   setInstanceVariables (meal) {
@@ -32,8 +30,8 @@ export const chartUtil = {
   refreshAll () {
     this.calorieCount.innerText = this.meal.totalCals;
     this.macroChart.data.datasets[0].data = this.meal.macros();
-    this.gramMicrosChart.data.datasets[0].data = this.meal.gramMicros();
-    this.milligramMicrosChart.data.datasets[0].data = this.meal.milligramMicros();
+    this.gramMicrosChart.data.datasets[1].data = this.meal.gramMicros();
+    this.milligramMicrosChart.data.datasets[1].data = this.meal.milligramMicros();
     this.macroChart.update();
     this.gramMicrosChart.update();
     this.milligramMicrosChart.update();
@@ -99,8 +97,7 @@ export const chartUtil = {
         },
         options: {
           cutout: '50%',
-          radius: '75%',
-          rotation: 225
+          radius: '75%'
       }
     });
   },
@@ -110,17 +107,25 @@ export const chartUtil = {
       type: 'bar',
       data: {
         labels: this.gramMicrosLabels,
-        datasets: [{
-          label: 'fiber and sugar',
-          data: this.meal.gramMicros(),
-          backgroundColor: 'red',
-          barThickness: 5,
-        }]
+        datasets: [
+          {
+            label: 'Recommended Daily Intake (g)',
+            data: [25, 50],
+            backgroundColor: 'black',
+            barThickness: 5,
+          },
+          {
+            label: 'Input values (g)',
+            data: this.meal.gramMicros(),
+            backgroundColor: 'red',
+            barThickness: 5,
+          }
+        ]
       },
       options: {
         plugins: { 
           legend: {
-            display: false,
+            display: true,
           }
         }
       }
@@ -132,17 +137,25 @@ export const chartUtil = {
       type: 'bar',
       data: {
         labels: this.milligramMicrosLabels,
-        datasets: [{
-          label: 'cholestrol and sodium',
-          data: this.meal.milligramMicros(),
-          backgroundColor: 'red',
-          barThickness: 5,
-        }]
+        datasets: [
+          {
+            label: 'Recommended Daily Intake (mg)',
+            data: [300, 2300],
+            backgroundColor: 'black',
+            barThickness: 5,
+          },
+          {
+            label: 'Input values (mg)',
+            data: this.meal.milligramMicros(),
+            backgroundColor: 'red',
+            barThickness: 5,
+          }
+        ]
       },
       options: {
         plugins: { 
           legend: {
-            display: false,
+            display: true,
           }
         }
       }
