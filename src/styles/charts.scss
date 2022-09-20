@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 650px;
   width: 50%;
 }
 
@@ -12,6 +11,7 @@
   justify-content: space-around;
   align-items: flex-start;
   width: 100%;
+  margin-top: -50px;
 }
 
 .calorie-count-wrapper {
@@ -19,6 +19,9 @@
   justify-content: center;
   align-items: center;
   font-size: 2em;
+
+  font-family: 'Dangrek', cursive;
+  color: #1f1235;
 }
 
 .macros-chart-wrapper {

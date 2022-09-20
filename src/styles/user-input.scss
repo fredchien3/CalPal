@@ -1,7 +1,6 @@
 #user-inputs-wrapper {
   display: flex;
   flex-direction: column;
-  height: 650px;
   width: 40%;
 }
 
@@ -20,15 +19,26 @@
   height: 95%;
 }
 
+.slide-number, .step-title {
+  color: #1f1235;
+  font-weight: 900;
+}
+
 .prev, .next {
   cursor: pointer;
   position: absolute;
-  background: rgba(0, 0, 0, 0.5);
+  background: hsla(1, 100%, 71%, 0.50);
   top: 50%;
   padding: 16px;
   color: white;
   border-radius: 3px;
   user-select: none;
+  transition: 0.3s;
+}
+
+.prev:hover, .next:hover {
+  background: rgb(255, 110, 107);
+  transition: 0.3s;
 }
 
 .prev {
@@ -74,27 +84,30 @@
 }
 
 .choices-div button {
-  background: none;
-  border-radius: 5px;
+  background: #fbdd74;
+  border-radius: 15px;
   box-sizing: border-box;
-  font: inherit;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 600;
   cursor: pointer;
-
-  border: 1px solid black;
+  border: 4px solid #1f1235;
   height: 70px;
   width: 120px;
   font-size: 14px;
-
   margin: 15px;
-  transition: 0.4s;
-
+  transition: 0.2s;
 }
 
 .choices-div button:hover {
-  box-shadow: 0 5px 15px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-  transition: 0.4s;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.50);
+  transition: 0.2s;
 }
 
+.choices-div button:active {
+  box-shadow: none;
+  background-color: #ff6e6c;
+  transition: 10ms;
+}
 
 #selected-items-display {
   width: 100%;
@@ -104,20 +117,28 @@
 
 #selected-items-display button {
   background: none;
-  border-radius: 5px;
+  border-radius: 10px;
   box-sizing: border-box;
   font: inherit;
   cursor: pointer;
-  border: 1px solid black;
-  height: 50px;
+  border: 2px solid #1f1235;
+  height: 45px;
   width: 100px;
   font-size: 14px;
   transition: 0.4s;
   white-space: initial;
   overflow: hidden;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 #selected-items-display button:hover {
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.50);
   text-decoration: line-through;
   transition: 0.4s;
+}
+
+#selected-items-display button:active {
+  box-shadow: none;
+  text-decoration: line-through;
+  transition: 10ms;
 }

@@ -1,29 +1,26 @@
+@import url(./styles/reset.scss);
 @import url(./styles/charts.scss);
 @import url(./styles/user-input.scss);
 
-* {
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-ul {
-  padding: 0;
-  margin: 0;
+body {
+  background-color: #FFFFFF;
+  color: white;
 }
 
 header {
-  background-color: lightpink;
+  background-color: #ff6e6c;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 0px 30px 0px 30px;
 }
 
-h1, h2, h3 {
-  padding: 0;
-  margin: 0;
+header h1 {
+  font-size: 48px;
+  font-family: 'Dangrek', cursive;
 }
 
 main {
-  // background-color: lightblue;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,4 +29,5 @@ main {
 
 main section {
   border: 1px solid lightblue;
+  height: 600px;
 }
