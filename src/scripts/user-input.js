@@ -51,6 +51,7 @@ export const userInput = {
   generateButton (itemObject) {
     const button = document.createElement('button');
     button.className = itemObject.Item;
+    button.classList.add("user-input-button");
     button.innerText = itemObject.Item;
     button.addEventListener('click', () => {
       this.handleItemSelect(itemObject);
@@ -63,6 +64,7 @@ export const userInput = {
     const ul = document.createElement('ul')
     const button = document.createElement('button');
     button.className = itemObject.Item;
+    button.classList.add("user-input-button");
     button.innerText = itemObject.Item;
     this.selectedItemsDisplay.appendChild(button);
     button.addEventListener('click', () => {

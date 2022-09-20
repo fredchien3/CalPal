@@ -180,10 +180,12 @@ textarea {
   width: 85%;
 }
 
-.choices-div button {
+.user-input-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: #fbdd74;
   border-radius: 15px;
-  box-sizing: border-box;
   font-family: 'Noto Sans', sans-serif;
   font-weight: 600;
   cursor: pointer;
@@ -195,15 +197,15 @@ textarea {
   transition: 0.2s;
 }
 
-.choices-div button:hover {
+.user-input-button:hover {
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.50);
   transition: 0.2s;
 }
 
-.choices-div button:active {
+.user-input-button:active {
   box-shadow: none;
   background-color: #ff6e6c;
-  transition: 10ms;
+  transition: 50ms;
 }
 
 #selected-items-display {
@@ -213,31 +215,24 @@ textarea {
 }
 
 #selected-items-display button {
-  background: none;
   border-radius: 10px;
-  box-sizing: border-box;
-  font: inherit;
-  cursor: pointer;
-  border: 2px solid #1f1235;
+  border-width: 2px;
   height: 45px;
   width: 100px;
-  font-size: 14px;
-  transition: 0.4s;
+  font-size: 12px;
+  margin: 0px;
   white-space: initial;
   overflow: hidden;
-  font-family: 'Noto Sans', sans-serif;
 }
 
 #selected-items-display button:hover {
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.50);
   text-decoration: line-through;
-  transition: 0.4s;
+  background-color: #67568c;
+  transition: 0.2s;
 }
 
 #selected-items-display button:active {
-  box-shadow: none;
   text-decoration: line-through;
-  transition: 10ms;
 }
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
