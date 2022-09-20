@@ -2,6 +2,10 @@ import { chartUtil } from "./chart-util";
 
 export class Meal {
   constructor () {
+    this.setInstanceVariables();
+  }
+
+  setInstanceVariables () {
     this.totalCals = 0;
     this.totalProtein = 0;
     this.totalFat = 0;
@@ -12,56 +16,35 @@ export class Meal {
     this.totalSugar = 0;      // g
     this.itemObjects = [];
   }
+  
+  reset () {
+    this.setInstanceVariables();
+    chartUtil.refreshAll();
+  }
 
   pushItem (itemObject) {
     this.itemObjects.push(itemObject);
-
-    this.totalCals += parseInt(itemObject['Calories']);
-    this.totalProtein += parseInt(itemObject['Protein']);
-    this.totalFat += parseInt(itemObject['Total Fat']);
-    this.totalCarbs += parseInt(itemObject['Carbohydrates']);
-
-    this.totalCholestrol += parseInt(itemObject['Cholestrol']);
-    this.totalSodium += parseInt(itemObject['Sodium']);
-    this.totalFiber += parseInt(itemObject['Fiber']);
-    this.totalSugar += parseInt(itemObject['Sugar']);
-
+    this.updateStats(itemObject, 1);
     chartUtil.refreshAll();
   }
 
   popItem (itemObject) {
     this.itemObjects.splice(this.itemObjects.indexOf(itemObject), 1);
-    this.totalCals -= parseInt(itemObject['Calories']);
-    this.totalProtein -= parseInt(itemObject['Protein']);
-    this.totalFat -= parseInt(itemObject['Total Fat']);
-    this.totalCarbs -= parseInt(itemObject['Carbohydrates']);
-
-    this.totalCholestrol -= parseInt(itemObject['Cholestrol']);
-    this.totalSodium -= parseInt(itemObject['Sodium']);
-    this.totalFiber -= parseInt(itemObject['Fiber']);
-    this.totalSugar -= parseInt(itemObject['Sugar']);
-    
+    this.updateStats(itemObject, -1);
     chartUtil.refreshAll();
   }
 
-  reset () {
-    this.totalCals = 0;
-    this.totalProtein = 0;
-    this.totalFat = 0;
-    this.totalCarbs = 0;
-    this.totalCholestrol = 0;
-    this.totalSodium = 0;
-    this.totalFiber = 0;
-    this.totalSugar = 0;
-    this.itemObjects = [];
-    chartUtil.refreshAll();
+  updateStats (itemObject, mathSign) {
+    this.totalCals += ( mathSign * parseInt(itemObject['Calories']));
+    this.totalProtein += ( mathSign * parseInt(itemObject['Protein']));
+    this.totalFat += ( mathSign * parseInt(itemObject['Total Fat']));
+    this.totalCarbs += ( mathSign * parseInt(itemObject['Carbohydrates']));
+    this.totalCholestrol += ( mathSign * parseInt(itemObject['Cholestrol']));
+    this.totalSodium += ( mathSign * parseInt(itemObject['Sodium']));
+    this.totalFiber += ( mathSign * parseInt(itemObject['Fiber']));
+    this.totalSugar += ( mathSign * parseInt(itemObject['Sugar']));
   }
 
-  printItems () {
-    const arr = this.itemObjects.map(ele => ele.Item);
-    console.log(arr);
-  }
-  
   calories () {
     return this.totalCals;
   }
