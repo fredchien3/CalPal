@@ -44,14 +44,14 @@
 
 .step-title {
   position: absolute;
-  top: 0;
+  top: 30px;
   left: 50px;
 }
 
 .slide-number {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 30px;
+  left: 10px;
 }
 
 .dot {
@@ -118,6 +118,7 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
 }
 main section {
   border: 1px solid black;
@@ -141,13 +142,16 @@ main section {
 }
 
 .macros-chart-wrapper {
-  width: 200px;
+  width: 250px;
+  height: 250px;
 }
 
 #macros-chart {
   border: 1px solid black;
 }
 
-.micros-chart-wrapper {
+.gram-micros-chart-wrapper, .milligram-micros-chart-wrapper {
   border: 1px solid black;
+  width: 200px;
+  height: 200px;
 }

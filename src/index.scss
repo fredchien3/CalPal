@@ -23,6 +23,7 @@ main {
   section {
     border: 1px solid black;
   }
+  overflow: hidden;
 }
 
 .charts-wrapper {
@@ -44,13 +45,16 @@ main {
 }
 
 .macros-chart-wrapper {
-  width: 200px;
+  width: 250px;
+  height: 250px;
 }
 
 #macros-chart {
   border: 1px solid black;
 }
 
-.micros-chart-wrapper {
+.gram-micros-chart-wrapper, .milligram-micros-chart-wrapper {
   border: 1px solid black;
+  width: 200px;
+  height: 200px;
 }

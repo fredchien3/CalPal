@@ -6,16 +6,27 @@ export class Meal {
     this.totalProtein = 0;
     this.totalFat = 0;
     this.totalCarbs = 0;
+    this.totalCholestrol = 0; // mg
+    this.totalSodium = 0;     // mg
+    this.totalFiber = 0;      // g
+    this.totalSugar = 0;      // g
     this.itemObjects = [];
   }
 
   pushItem (itemObject) {
     this.itemObjects.push(itemObject);
+
     this.totalCals += parseInt(itemObject['Calories']);
     this.totalProtein += parseInt(itemObject['Protein']);
     this.totalFat += parseInt(itemObject['Total Fat']);
     this.totalCarbs += parseInt(itemObject['Carbohydrates']);
-    chartUtil.refresh();
+
+    this.totalCholestrol += parseInt(itemObject['Cholestrol']);
+    this.totalSodium += parseInt(itemObject['Sodium']);
+    this.totalFiber += parseInt(itemObject['Fiber']);
+    this.totalSugar += parseInt(itemObject['Sugar']);
+
+    chartUtil.refreshAll();
   }
 
   popItem (itemObject) {
@@ -24,7 +35,26 @@ export class Meal {
     this.totalProtein -= parseInt(itemObject['Protein']);
     this.totalFat -= parseInt(itemObject['Total Fat']);
     this.totalCarbs -= parseInt(itemObject['Carbohydrates']);
-    chartUtil.refresh();
+
+    this.totalCholestrol -= parseInt(itemObject['Cholestrol']);
+    this.totalSodium -= parseInt(itemObject['Sodium']);
+    this.totalFiber -= parseInt(itemObject['Fiber']);
+    this.totalSugar -= parseInt(itemObject['Sugar']);
+    
+    chartUtil.refreshAll();
+  }
+
+  reset () {
+    this.totalCals = 0;
+    this.totalProtein = 0;
+    this.totalFat = 0;
+    this.totalCarbs = 0;
+    this.totalCholestrol = 0;
+    this.totalSodium = 0;
+    this.totalFiber = 0;
+    this.totalSugar = 0;
+    this.itemObjects = [];
+    chartUtil.refreshAll();
   }
 
   printItems () {
@@ -32,11 +62,19 @@ export class Meal {
     console.log(arr);
   }
   
+  calories () {
+    return this.totalCals;
+  }
+  
   macros () {
     return [this.totalProtein, this.totalFat, this.totalCarbs];
   }
-  
-  calories () {
-    return this.totalCals;
+
+  gramMicros () {
+    return [this.totalFiber, this.totalSugar];
+  }
+
+  milligramMicros () {
+    return [this.totalCholestrol, this.totalSodium];
   }
 }
