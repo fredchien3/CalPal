@@ -27,7 +27,9 @@
 }
 
 .charts-grid > div {
-  border: 1px solid black;
+  border: 1px solid #67568c;
+  box-shadow: 6px 6px #67568c;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -113,16 +115,16 @@
 
 #toggle-macros-chart-container-wrapper {
   position: absolute;
-  left: 2px;
-  bottom: 2px;
+  left: 6px;
+  bottom: 4px;
   z-index: 1;
 }
 
 #toggle-macros-chart-container {
   position: relative;
   display: flex;
-  width: 33px;
-  height: 21px;
+  width: 32px;
+  height: 22px;
 }
 
 #toggle-macros-chart-container:hover .slider {
@@ -156,14 +158,14 @@
   height: 16px;
   width: 16px;
   left: 2px;
-  bottom: 1px;
+  bottom: 2px;
   background-color: white;
   transition: 0.3s;
   border-radius: 50%;
 }
 
 input:checked + .slider:before {
-  transform: translateX(12px);
+  transform: translateX(10px);
 }
 
 .actual-chart {
@@ -179,7 +181,7 @@ input:checked + .slider:before {
   border-radius: 10px;
   position: relative;
   width: 50vh;
-  height: 30vh;
+  height: 25vh;
 }
 
 .gram-micros-chart-wrapper{

@@ -106,6 +106,11 @@ export const chartUtil = {
                 return (` ${ctx.label}: ${output}%`)
               }
             }
+          },
+          emptyDoughnut: {
+            color: 'black',
+            width: 2,
+            radiusDecrease: 20
           }
         }
       }
@@ -129,6 +134,7 @@ export const chartUtil = {
         }]
       },
       options: {
+        maintainAspectRatio: false,
         plugins: { 
           legend: {
             display: false,

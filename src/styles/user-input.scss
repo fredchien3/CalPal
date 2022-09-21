@@ -146,12 +146,14 @@
 
 #selected-items-display {
   width: 100%;
-  height: 80px;
+  height: 70px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   flex-wrap: wrap;
   overflow-y: auto;
-  border-bottom: 5px solid #1f1235;
+  margin-top: 4px;
+  border-top: 4px solid #67568c;
+  border-bottom: 4px solid #67568c;
 }
 
 #selected-items-display button {
