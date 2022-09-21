@@ -1,5 +1,13 @@
 import Chart from 'chart.js/auto';
 
+Chart.defaults.font.size = 12;
+Chart.defaults.font.family = "'Noto Sans', sans-serif";
+Chart.defaults.font.weight = 600;
+
+Chart.defaults.plugins.tooltip.backgroundColor = '#f4effc';
+Chart.defaults.plugins.tooltip.titleColor = 'black';
+Chart.defaults.plugins.tooltip.bodyColor = 'black';
+
 export const chartUtil = {
   setupChart (meal) {
     this.setInstanceVariables(meal);
@@ -12,7 +20,10 @@ export const chartUtil = {
   setInstanceVariables (meal) {
     this.meal = meal;
 
-    this.calorieCount = document.getElementById('calorie-count');
+    this.calorieCounter = document.getElementById('calorie-counter');
+    this.proteinCounter = document.getElementById('protein-counter');
+    this.fatCounter = document.getElementById('fat-counter');
+    this.carbsCounter = document.getElementById('carbs-counter');
 
     this.macroCtx = document.getElementById('macros-chart').getContext('2d');
     this.macroLabels = ['Protein', 'Fat', 'Carbs'];
@@ -23,12 +34,19 @@ export const chartUtil = {
     this.milligramMicrosCtx = document.getElementById('milligram-micros-chart').getContext('2d');
     this.milligramMicrosLabels = ['Cholestrol', 'Sodium'];
 
-    this.backgroundColor = ['#ff6e6c', '#fbdd74', '#67568c'];
+
+    this.orangeish = '#ff6e6c';
+    this.yellowish = '#fbdd74';
+    this.purpleish = '#67568c';
+    this.backgroundColor = [this.orangeish, this.yellowish, this.purpleish];
     this.borderColor = ['red', 'orange', 'darkblue'];
   },
 
   refreshAll () {
-    this.calorieCount.innerText = this.meal.totalCals;
+    this.calorieCounter.innerText = this.meal.totalCals;
+    this.proteinCounter.innerText = this.meal.totalProtein;
+    this.fatCounter.innerText = this.meal.totalFat;
+    this.carbsCounter.innerText = this.meal.totalCarbs;
     this.macroChart.data.datasets[0].data = this.meal.macros();
     this.gramMicrosChart.data.datasets[1].data = this.meal.gramMicros();
     this.milligramMicrosChart.data.datasets[1].data = this.meal.milligramMicros();
@@ -60,14 +78,14 @@ export const chartUtil = {
       data: {
         labels: this.macroLabels,
         datasets: [{
-            label: '',
+            label: 'Macros',
             data: this.meal.macros(),
             backgroundColor: this.backgroundColor,
             borderColor: this.backgroundColor,
             hoverBorderColor: this.borderColor,
             hoverBorderWidth: 10,
             barThickness: 35,
-            borderRadius: 50,
+            borderRadius: 5,
         }]
       },
       options: {
@@ -95,9 +113,22 @@ export const chartUtil = {
             borderRadius: 50,
           }]
         },
-        options: {
-          cutout: '50%',
-          radius: '75%'
+      options: {
+        cutout: '50%',
+        radius: '90%',
+        maintainAspectRatio: false,
+        plugins: { 
+          legend: {
+            display: false,
+          },
+          tooltip: {
+            callbacks: {
+              label: function (ctx) {
+                return (` ${ctx.label}: ${ctx.raw} g`)
+              }
+            }
+          }
+        }
       }
     });
   },
@@ -109,23 +140,31 @@ export const chartUtil = {
         labels: this.gramMicrosLabels,
         datasets: [
           {
-            label: 'Recommended Daily Intake (g)',
+            label: 'Recommended Daily (g)',
             data: [25, 50],
-            backgroundColor: 'black',
-            barThickness: 10,
+            backgroundColor: this.purpleish,
+            barThickness: 15,
           },
           {
-            label: 'Input values (g)',
+            label: 'Input (g)',
             data: this.meal.gramMicros(),
-            backgroundColor: 'red',
             barThickness: 10,
+            backgroundColor: this.orangeish,
           }
         ]
       },
       options: {
         plugins: { 
           legend: {
-            display: true,
+            position: 'bottom',
+          },
+          tooltip: {
+            callbacks: {
+              title: () => {return ''},
+              label: function (ctx) {
+                return (` ${ctx.label}: ${ctx.raw} g`)
+              }
+            }
           }
         }
       }
@@ -139,15 +178,15 @@ export const chartUtil = {
         labels: this.milligramMicrosLabels,
         datasets: [
           {
-            label: 'Recommended Daily Intake (mg)',
+            label: 'Recommended Daily (mg)',
             data: [300, 2300],
-            backgroundColor: 'black',
+            backgroundColor: this.purpleish,
             barThickness: 10,
           },
           {
-            label: 'Input values (mg)',
+            label: 'Input (mg)',
             data: this.meal.milligramMicros(),
-            backgroundColor: 'red',
+            backgroundColor: this.orangeish,
             barThickness: 10,
           }
         ]
@@ -155,7 +194,15 @@ export const chartUtil = {
       options: {
         plugins: { 
           legend: {
-            display: true,
+            position: 'bottom',
+          },
+          tooltip: {
+            callbacks: {
+              title: () => {return ''},
+              label: function (ctx) {
+                return (` ${ctx.label}: ${ctx.raw} mg`)
+              }
+            }
           }
         }
       }

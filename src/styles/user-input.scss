@@ -1,4 +1,4 @@
-#user-inputs-wrapper {
+#left-half {
   display: flex;
   flex-direction: column;
 }
@@ -10,7 +10,7 @@
   align-items: center;
   background-color: #f4effc;
   border-radius: 25px;
-  margin: 50px;
+  margin: 120px 50px 35px 50px;
   height: 100%;
   box-shadow: 10px 10px #67568c;
 }
@@ -141,8 +141,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  
-  background-color: lightgreen;
 }
 
 #selected-items-display {
@@ -197,6 +195,7 @@
 #reset-meal:active {
   text-decoration: underline;
   color: black;
+  
 }
 
 #selected-items-display::-webkit-scrollbar {
