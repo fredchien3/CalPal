@@ -1,31 +1,40 @@
 .charts-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  width: 50%;
+  background-color: lightyellow;
 }
 
 .middle-third {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  margin-top: -50px;
+  z-index: 1;
 }
 
 .calorie-count-wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2em;
+  justify-content: flex-end;
+  align-items: flex-end;
+  font-size: 3em;
+  
+  width: 100%;
 
   font-family: 'Dangrek', cursive;
   color: #1f1235;
+  margin-top: 90px;
+  margin-right: 100px;
+}
+
+.calorie-count-wrapper h3 {
+  margin-left: 8px;
 }
 
 .macros-chart-wrapper {
   width: 250px;
+  margin-right: 80px;
 }
 
 #macros-chart {
@@ -34,6 +43,7 @@
 
 .micros-charts-wrapper {
   display: flex;
+  margin-top: 30px;
 }
 
 .gram-micros-chart-wrapper, .milligram-micros-chart-wrapper {

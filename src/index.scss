@@ -3,7 +3,8 @@
 @import url(./styles/user-input.scss);
 
 body {
-  background-color: #e2daeb;
+  background-color: white;
+  height: 80vh;
 }
 
 header {
@@ -37,15 +38,10 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  overflow: hidden;
+  height: 100%;
 }
 
 main section {
-  height: 600px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-
-main section:first-of-type {
-  border-right: 5px solid #1f1235;
+  height: 100%;
+  width: 50%;
 }

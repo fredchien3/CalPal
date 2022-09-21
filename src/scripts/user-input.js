@@ -98,6 +98,7 @@ export const userInput = {
 
   setupIndexDots (num) {
     const indexDots = document.createElement('div');
+    indexDots.className = 'dots-wrapper';
     for (let i = 1; i <= num; i++) {
       const dot = document.createElement('span');
       dot.className = 'dot';

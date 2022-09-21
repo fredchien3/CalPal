@@ -23,8 +23,8 @@ export const chartUtil = {
     this.milligramMicrosCtx = document.getElementById('milligram-micros-chart').getContext('2d');
     this.milligramMicrosLabels = ['Cholestrol', 'Sodium'];
 
-    this.backgroundColor = ['pink', 'yellow', 'lightblue'];
-    this.borderColor = ['red', 'orange', 'blue'];
+    this.backgroundColor = ['#ff6e6c', '#fbdd74', '#67568c'];
+    this.borderColor = ['red', 'orange', 'darkblue'];
   },
 
   refreshAll () {
@@ -112,13 +112,13 @@ export const chartUtil = {
             label: 'Recommended Daily Intake (g)',
             data: [25, 50],
             backgroundColor: 'black',
-            barThickness: 5,
+            barThickness: 10,
           },
           {
             label: 'Input values (g)',
             data: this.meal.gramMicros(),
             backgroundColor: 'red',
-            barThickness: 5,
+            barThickness: 10,
           }
         ]
       },
@@ -142,13 +142,13 @@ export const chartUtil = {
             label: 'Recommended Daily Intake (mg)',
             data: [300, 2300],
             backgroundColor: 'black',
-            barThickness: 5,
+            barThickness: 10,
           },
           {
             label: 'Input values (mg)',
             data: this.meal.milligramMicros(),
             backgroundColor: 'red',
-            barThickness: 5,
+            barThickness: 10,
           }
         ]
       },

@@ -36,6 +36,6 @@ In addition, this project will include:
  - ~~Thursday Afternoon: Submit initial proposal, create repo, mockup wireframe, and begin final proposal~~
  - ~~Friday Afternoon & Weekend: Complete initial project setup, research APIs~~
  - ~~Monday: Populate food data and backend logic for calculating outputs~~
- - Tuesday: Build out frontend
+ - ~~Tuesday: Build out frontend~~
  - Wednesday: Polish
  - Thursday Morning: Sip champagne
