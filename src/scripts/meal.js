@@ -50,7 +50,11 @@ export class Meal {
   }
   
   macros () {
-    return [this.totalProtein, this.totalFat, this.totalCarbs];
+    if (this.totalProtein === 0 && this.totalFat === 0 && this.totalCarbs === 0) {
+      return [];      
+    } else {
+      return [this.totalProtein, this.totalFat, this.totalCarbs];
+    }
   }
 
   gramMicros () {
