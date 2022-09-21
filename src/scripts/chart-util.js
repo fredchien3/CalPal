@@ -47,9 +47,11 @@ export const chartUtil = {
     this.proteinCounter.innerText = this.meal.totalProtein;
     this.fatCounter.innerText = this.meal.totalFat;
     this.carbsCounter.innerText = this.meal.totalCarbs;
+
     this.macroChart.data.datasets[0].data = this.meal.macros();
     this.gramMicrosChart.data.datasets[1].data = this.meal.gramMicros();
     this.milligramMicrosChart.data.datasets[1].data = this.meal.milligramMicros();
+
     this.macroChart.update();
     this.gramMicrosChart.update();
     this.milligramMicrosChart.update();
@@ -72,32 +74,6 @@ export const chartUtil = {
     }
   },
 
-  setMacroBar () {
-    this.macroChart = new Chart(this.macroCtx, {
-      type: 'bar',
-      data: {
-        labels: this.macroLabels,
-        datasets: [{
-            label: 'Macros',
-            data: this.meal.macros(),
-            backgroundColor: this.backgroundColor,
-            borderColor: this.backgroundColor,
-            hoverBorderColor: this.borderColor,
-            hoverBorderWidth: 10,
-            barThickness: 35,
-            borderRadius: 5,
-        }]
-      },
-      options: {
-        plugins: { 
-          legend: {
-            display: false,
-          }
-        }
-      }
-    });
-  },
-
   setMacroDoughnut () {
     this.macroChart = new Chart(this.macroCtx, {
       type: 'doughnut',
@@ -110,7 +86,7 @@ export const chartUtil = {
             borderColor: this.backgroundColor,
             hoverBorderColor: this.borderColor,
             hoverBorderWidth: 10,
-            borderRadius: 50,
+            borderRadius: 10,
           }]
         },
       options: {
@@ -124,8 +100,55 @@ export const chartUtil = {
           tooltip: {
             callbacks: {
               label: function (ctx) {
-                return (` ${ctx.label}: ${ctx.raw} g`)
+                const total = ctx.dataset.data.reduce((acc, el) => acc + el, 0);
+                const percentage = ctx.raw / total * 100;
+                const output = Math.floor(percentage);
+                return (` ${ctx.label}: ${output}%`)
               }
+            }
+          }
+        }
+      }
+    });
+  },
+
+  setMacroBar () {
+    this.macroChart = new Chart(this.macroCtx, {
+      type: 'bar',
+      data: {
+        labels: this.macroLabels,
+        datasets: [{
+            label: 'Macros',
+            data: this.meal.macros(),
+            backgroundColor: this.backgroundColor,
+            borderColor: this.backgroundColor,
+            hoverBorderColor: this.borderColor,
+            hoverBorderWidth: 10,
+            barThickness: 35,
+            borderRadius: 10,
+        }]
+      },
+      options: {
+        plugins: { 
+          legend: {
+            display: false,
+          }
+        },
+        scales: {
+          xAxes: {
+            display: false
+          },
+          x: {
+            grid: {
+              display: false,
+            }
+          },
+          y: {
+            grid: {
+              display: false,
+            },
+            ticks: {
+              stepSize: 50,
             }
           }
         }
@@ -143,12 +166,12 @@ export const chartUtil = {
             label: 'Recommended Daily (g)',
             data: [25, 50],
             backgroundColor: this.purpleish,
-            barThickness: 15,
+            barThickness: 10,
           },
           {
             label: 'Input (g)',
             data: this.meal.gramMicros(),
-            barThickness: 10,
+            barThickness: 15,
             backgroundColor: this.orangeish,
           }
         ]
@@ -164,6 +187,21 @@ export const chartUtil = {
               label: function (ctx) {
                 return (` ${ctx.label}: ${ctx.raw} g`)
               }
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: {
+              display: false,
+            }
+          },
+          y: {
+            grid: {
+              display: false,
+            },
+            ticks: {
+              stepSize: 25,
             }
           }
         }
@@ -187,7 +225,7 @@ export const chartUtil = {
             label: 'Input (mg)',
             data: this.meal.milligramMicros(),
             backgroundColor: this.orangeish,
-            barThickness: 10,
+            barThickness: 15,
           }
         ]
       },
@@ -202,6 +240,21 @@ export const chartUtil = {
               label: function (ctx) {
                 return (` ${ctx.label}: ${ctx.raw} mg`)
               }
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: {
+              display: false,
+            }
+          },
+          y: {
+            grid: {
+              display: false,
+            },
+            ticks: {
+              stepSize: 1200,
             }
           }
         }

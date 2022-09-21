@@ -67,9 +67,11 @@ export const userInput = {
     button.classList.add("user-input-button");
     button.innerText = itemObject.Item;
     this.selectedItemsDisplay.appendChild(button);
+    this.selectedItemsDisplay.scrollTop = this.selectedItemsDisplay.scrollHeight;
     button.addEventListener('click', () => {
       this.meal.popItem(itemObject);
       this.selectedItemsDisplay.removeChild(button);
+      
     })
   },
 

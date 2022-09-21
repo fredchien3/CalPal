@@ -1,6 +1,7 @@
 #left-half {
   display: flex;
   flex-direction: column;
+  padding-top: 50px;
 }
 
 #slideshow-wrapper {
@@ -10,7 +11,7 @@
   align-items: center;
   background-color: #f4effc;
   border-radius: 25px;
-  margin: 120px 50px 35px 50px;
+  margin: 0px 50px 0px 50px;
   height: 100%;
   box-shadow: 10px 10px #67568c;
 }
@@ -117,7 +118,7 @@
   cursor: pointer;
   border: none;
   font-size: 14px;
-  margin: 10px 15px 10px 15px;
+  margin: 10px 10px 10px 10px;
   transition: 0.2s;
   width: 20%;
   height: 18%;
@@ -145,11 +146,12 @@
 
 #selected-items-display {
   width: 100%;
-  height: 100px;
+  height: 80px;
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
   overflow-y: auto;
+  border-bottom: 5px solid #1f1235;
 }
 
 #selected-items-display button {

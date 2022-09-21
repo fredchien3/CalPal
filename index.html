@@ -21,6 +21,7 @@
     </nav>
   </header>
   <main>
+    
     <section id="left-half">
       <div id="slideshow-wrapper"></div>
     </section>
@@ -49,8 +50,16 @@
               <h1 class="counter" id="carbs-counter">0</h1>
             </div>
           </div>
-          <div class="macros-chart-wrapper">
-            <canvas id="macros-chart" class="actual-chart"></canvas>
+          <div>
+            <div id="toggle-macros-chart-container-wrapper">
+              <label id="toggle-macros-chart-container">
+                <input id="toggle-macros-chart" type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="macros-chart-wrapper">
+              <canvas id="macros-chart" class="actual-chart"></canvas>
+            </div>
           </div>
           <div class="gram-micros-chart-wrapper">
             <canvas id="gram-micros-chart" class="actual-chart"></canvas>
@@ -60,7 +69,6 @@
           </div>
         </div>
       </div>
-      <button id="toggle-macros-chart">Toggle Macro Chart</button>
     </section>
   </main>
 </body>
