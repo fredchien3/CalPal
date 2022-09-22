@@ -68,9 +68,8 @@
 
 
 .tall {
-  margin-top: 10px;
   height: 65vh !important;
-  transition: height 0.5s;
+  transition: height 0.5s
 }
 
 #calorie-count-wrapper {
@@ -164,7 +163,6 @@
 #toggle-view-container-wrapper {
   position: absolute;
   right: 0px;
-  
 }
 
 .toggle-container {

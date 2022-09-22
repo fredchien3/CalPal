@@ -3,12 +3,14 @@ import cava from '/src/foods/cava.json'
 export const userInput = {
   initialize (meal) {
     this.meal = meal;
-    this.slideshowWrapper = document.getElementById('slideshow-wrapper');
+    this.userInputSlideshowWrapper = document.getElementById('slideshow-wrapper');
     this.selectedItemsDisplay = document.getElementById('selected-items-display');
 
-    this.slideIdx = 1;
-    this.setupSlides();
-    this.displaySlide(this.slideIdx);
+    this.userInputSlideIdx = 1;
+    this.welcomeSlideIdx = 1;
+    this.setupUserInputSlides();
+    this.displaySlide(this.userInputSlideIdx);
+    this.displaySlide(this.welcomeSlideIdx, true)
     this.resetButton = document.getElementById('reset-meal');
     this.resetButton.addEventListener('click', () => {
       meal.reset();
@@ -16,17 +18,17 @@ export const userInput = {
     })
   },
 
-  setupSlides () {
+  setupUserInputSlides () {
     const numberOfSlides = cava.steps.length;
 
     cava.steps.forEach((step, i) => {
       const stepNumber = i + 1;
 
       const slideDiv = document.createElement('div');
-      slideDiv.className = 'slide-div';
+      slideDiv.className = 'user-input-slide-div';
 
       const slideNum = document.createElement('div');
-      slideNum.className = 'slide-number';
+      slideNum.className = 'user-input-slide-number';
       slideNum.classList.add('noselect');
       slideNum.innerText = stepNumber + ' / ' + numberOfSlides;
       slideDiv.appendChild(slideNum);
@@ -44,7 +46,7 @@ export const userInput = {
       })
       slideDiv.appendChild(stepChoices);
       
-      this.slideshowWrapper.appendChild(slideDiv);
+      this.userInputSlideshowWrapper.appendChild(slideDiv);
     })
     this.setupPrevAndNextButtons();
     this.setupIndexDots(numberOfSlides);
@@ -93,51 +95,87 @@ export const userInput = {
     const rightIcon = document.createElement('i');
     rightIcon.className = 'fa-solid fa-caret-right'
     nextButton.appendChild(rightIcon);
-
-
     nextButton.addEventListener('click', () => this.incrementSlide(1));
-    this.slideshowWrapper.appendChild(prevButton);
-    this.slideshowWrapper.appendChild(nextButton);
+    this.userInputSlideshowWrapper.appendChild(prevButton);
+    this.userInputSlideshowWrapper.appendChild(nextButton);
+
+    document.getElementById('welcome-prev').addEventListener('click', () => this.incrementSlide(-1, true))
+    document.getElementById('welcome-next').addEventListener('click', () => this.incrementSlide(1, true))
   },
 
   setupIndexDots (num) {
-    const indexDots = document.createElement('div');
-    indexDots.className = 'dots-wrapper';
+    const userInputIndexDots = document.createElement('div');
+    userInputIndexDots.className = 'dots-wrapper';
     for (let i = 1; i <= num; i++) {
       const dot = document.createElement('span');
       dot.className = 'dot';
       dot.addEventListener('click', () => this.currentSlide(i));
-      indexDots.appendChild(dot);
+      userInputIndexDots.appendChild(dot);
     }
-    this.slideshowWrapper.appendChild(indexDots);
+    this.userInputSlideshowWrapper.appendChild(userInputIndexDots);
+
+    const welcomeDots = document.getElementsByClassName('welcome-dot');
+    for (let i = 0; i < 4; i++) {
+      console.log(welcomeDots[i])
+      welcomeDots[i].addEventListener('click', () => this.currentSlide(i+1, true));
+    }
   },
 
-  incrementSlide (num) {
-    this.slideIdx += num;
-    this.displaySlide(this.slideIdx);
+  incrementSlide (num, welcome = false) {
+    if (welcome) {
+      this.welcomeSlideIdx += num;
+      this.displaySlide(this.welcomeSlideIdx, true)
+    } else {
+      this.userInputSlideIdx += num;
+      this.displaySlide(this.userInputSlideIdx);
+    }
   },
 
-  currentSlide (num) {
-    this.slideIdx = num;
-    this.displaySlide(this.slideIdx);
+  currentSlide (num, welcome = false) {
+    if (welcome) {
+      this.welcomeSlideIdx = num;
+      this.displaySlide(this.welcomeSlideIdx, true)
+    } else {
+      this.userInputSlideIdx = num;
+      this.displaySlide(this.userInputSlideIdx);
+    }
   },
 
-  displaySlide (num) {
-    let slides = document.getElementsByClassName('slide-div');
-    let dots = document.getElementsByClassName('dot');
+  displaySlide (num, welcome = false) {
+    if (welcome) {
+      let slides = document.getElementsByClassName('welcome-slide-div');
+      let dots = document.getElementsByClassName('welcome-dot')
 
-    if (num > slides.length) this.slideIdx = 1;
-    if (num < 1) { this.slideIdx = slides.length };
+      if (num > slides.length) this.welcomeSlideIdx = 1;
+      if (num < 1) { this.welcomeSlideIdx = slides.length };
 
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" welcome-active", "");
+      }
+      
+      slides[this.welcomeSlideIdx-1].style.display = "flex";
+      dots[this.welcomeSlideIdx-1].className += " welcome-active";
+    } else {
+      let slides = document.getElementsByClassName('user-input-slide-div');
+      let dots = document.getElementsByClassName('dot');
+      
+      if (num > slides.length) this.userInputSlideIdx = 1;
+      if (num < 1) { this.userInputSlideIdx = slides.length };
+      
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      
+      slides[this.userInputSlideIdx-1].style.display = "flex";
+      dots[this.userInputSlideIdx-1].className += " active";
     }
-
-    for (let i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-    }
-
-    slides[this.slideIdx-1].style.display = "flex";
-    dots[this.slideIdx-1].className += " active";
   }
 }

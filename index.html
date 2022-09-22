@@ -16,6 +16,7 @@
   <header>
     <h1 class="noselect">CalPal</h1>
     <nav>
+      <i id="info-button" class="fa-regular fa-circle-question"></i>
       <a href="https://github.com/fredchien3" target="_blank"><i class="fa-brands fa-github"></i></a>
       <a href="https://www.linkedin.com/in/fchien/"  target="_blank"><i class="fa-brands fa-linkedin"></i></a>
     </nav>
@@ -76,5 +77,63 @@
       </div>
     </section>
   </main>
+  <aside id="aside">
+    <section class="welcome-wrapper">
+      <h1>Welcome to CalPal!</h1>
+      <div class="welcome-slideshow-container">
+        <div class="welcome-slide-div">
+          <div class="welcome-slide-number noselect">1 / 4</div>
+          <img class="gif" src ="src/gifs/1-user-input-gif.gif">
+          <div class="text noselect">
+            <p>
+              Select your food items to build your meal.
+              Click the arrows or the dots to proceed.
+            </p>
+          </div>
+        </div>
+      
+        <div class="welcome-slide-div">
+          <div class="welcome-slide-number noselect">2 / 4</div>
+          <img class="gif" src ="src/gifs/2-deselecting.gif">
+          <div class="text noselect">
+            <p>
+              If you change your mind about a food item, you can deselect it.
+            </p>
+          </div>
+        </div>
+      
+        <div class="welcome-slide-div">
+          <div class="welcome-slide-number noselect">3 / 4</div>
+          <img class="gif" src ="src/gifs/3-toggle-macro.gif">
+          <div class="text noselect">
+            <p>
+              You can toggle the macronutrient chart between doughnut style and bar style.
+            </p>
+          </div>
+        </div>
+      
+        <div class="welcome-slide-div">
+          <div class="welcome-slide-number noselect">4 / 4</div>
+          <img class="gif" src ="src/gifs/4-toggle-micros.gif">
+          <div class="text noselect">
+            <p>
+              You can show or hide the micronutrient charts.
+            </p>
+          </div>
+        </div>
+      
+        <a class="prev" id="welcome-prev"><i class="fa-solid fa-caret-left"></i></a>
+        <a class="next" id="welcome-next"><i class="fa-solid fa-caret-right"></i></a>
+      </div>
+      <br>
+      
+      <div class="welcome-dots-wrapper">
+        <span class="welcome-dot" id="welcome-dot"></span>
+        <span class="welcome-dot" id="welcome-dot"></span>
+        <span class="welcome-dot" id="welcome-dot"></span>
+        <span class="welcome-dot" id="welcome-dot"></span>
+      </div>
+    </section>
+  </aside>
 </body>
 </html>
