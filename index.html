@@ -16,12 +16,12 @@
   <header>
     <h1 class="noselect">CalPal</h1>
     <nav>
+      <button id="toggle-bottom-charts">HI</button>
       <a href="https://github.com/fredchien3" target="_blank"><i class="fa-brands fa-github"></i></a>
       <a href="https://www.linkedin.com/in/fchien/"  target="_blank"><i class="fa-brands fa-linkedin"></i></a>
     </nav>
   </header>
   <main>
-    
     <section id="left-half">
       <div id="slideshow-wrapper"></div>
     </section>
@@ -30,47 +30,43 @@
         <button id="reset-meal">Reset Meal</button>
         <div id="selected-items-display"></div>
       </div>
-      <div class="charts-grid-wrapper">
-        <div class="charts-grid">
-          <div class="calorie-count-wrapper">
-            <div class="cal-count-top-row noselect">
-              Calories
-            </div>
-            <div class="cal-count-second-row">
-              <h1 class="counter" id="calorie-counter">0</h1>
-            </div>
-            <div class="cal-count-third-row noselect">
-              <h2>Protein</h2>
-              <h2>Fat</h2>
-              <h2>Carbs</h2>
-            </div>
-            <div class="cal-count-fourth-row">
-              <h1 class="counter" id="protein-counter">0</h1>
-              <h1 class="counter" id="fat-counter">0</h1>
-              <h1 class="counter" id="carbs-counter">0</h1>
-            </div>
+      <div class="upper-charts-wrapper">
+        <div id="calorie-count-wrapper" class="tall">
+          <div class="cal-count-top-row noselect">
+            Calories
           </div>
-          <div>
-            <div id="toggle-macros-chart-container-wrapper">
-              <label id="toggle-macros-chart-container">
-                <input id="toggle-macros-chart" type="checkbox">
-                <span class="slider"></span>
-              </label>
-            </div>
-            <div class="macros-chart-wrapper">
-              <canvas id="macros-chart" class="actual-chart"></canvas>
-            </div>
+          <div class="cal-count-second-row">
+            <h1 class="counter" id="calorie-counter">0</h1>
           </div>
-          <div>
-            <div class="gram-micros-chart-wrapper">
-              <canvas id="gram-micros-chart" class="actual-chart"></canvas>
-            </div>
+          <div class="cal-count-third-row noselect">
+            <h2>Protein</h2>
+            <h2>Fat</h2>
+            <h2>Carbs</h2>
           </div>
-          <div>
-            <div class="milligram-micros-chart-wrapper">
-              <canvas id="milligram-micros-chart" class="actual-chart"></canvas>
-            </div>
+          <div class="cal-count-fourth-row">
+            <h1 class="counter" id="protein-counter">0</h1>
+            <h1 class="counter" id="fat-counter">0</h1>
+            <h1 class="counter" id="carbs-counter">0</h1>
           </div>
+        </div>
+        <div id="macros-chart-wrapper-wrapper" class="tall">
+          <div id="toggle-macros-chart-container-wrapper">
+            <label id="toggle-macros-chart-container">
+              <input id="toggle-macros-chart" type="checkbox">
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="macros-chart-wrapper">
+            <canvas id="macros-chart" class="actual-chart"></canvas>
+          </div>
+        </div>
+      </div>
+      <div id="lower-charts-wrapper" class="hide">
+        <div class="gram-micros-chart-wrapper">
+          <canvas id="gram-micros-chart" class="actual-chart"></canvas>
+        </div>
+        <div class="milligram-micros-chart-wrapper">
+          <canvas id="milligram-micros-chart" class="actual-chart"></canvas>
         </div>
       </div>
     </section>

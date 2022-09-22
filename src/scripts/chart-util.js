@@ -12,7 +12,7 @@ export const chartUtil = {
   setupChart (meal) {
     this.setInstanceVariables(meal);
     this.setMacroDoughnut();
-    this.setupToggleChart();
+    this.setupToggles();
     this.renderGramMicros();
     this.renderMilligramMicros();
   },
@@ -57,11 +57,20 @@ export const chartUtil = {
     this.milligramMicrosChart.update();
   },
 
-  setupToggleChart () {
+  setupToggles () {
     const toggleMacroChart = document.getElementById('toggle-macros-chart');
     toggleMacroChart.addEventListener('click', () => {
       this.toggleChart();
     });
+    const toggleBottomCharts = document.getElementById('toggle-bottom-charts');
+    const topLeft = document.getElementById('calorie-count-wrapper');
+    const topRight = document.getElementById('macros-chart-wrapper-wrapper');
+    const bottomHalf = document.getElementById('lower-charts-wrapper');
+    toggleBottomCharts.addEventListener('click', () => {
+      topLeft.classList.toggle('tall');
+      topRight.classList.toggle('tall');
+      bottomHalf.classList.toggle('hide');
+    })
   },
 
   toggleChart () {

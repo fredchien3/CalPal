@@ -7,29 +7,22 @@
   padding-right: 20px;
 }
 
-.charts-grid-wrapper {
-  margin-top: 20px;
-  width: 100%;
-  height: 100%;
-}
-
-.charts-grid {
-  display: grid;
+.upper-charts-wrapper {
+  display: flex;
   justify-content: center;
-  align-items: center;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 20px;
-  row-gap: 20px;
-  
+  align-items: flex-start;
+  gap: 20px;
   width: 100%;
   height: 100%;
-  background-color: white;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
-.charts-grid > div {
+
+
+.upper-charts-wrapper > div {
   border: 1px solid #67568c;
   box-shadow: 6px 6px #67568c;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,9 +30,50 @@
   position: relative;
   width: 50vh;
   height: 30vh;
+  overflow: hidden;
+  transition: height 0.5s;
 }
 
-.calorie-count-wrapper {
+#lower-charts-wrapper > div  {
+  border: 1px solid #67568c;
+  box-shadow: 6px 6px #67568c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  position: relative;
+  width: 50vh;
+  height: 30vh;
+  overflow: hidden;
+}
+
+#lower-charts-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.50s;
+}
+
+.hide {
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+
+.tall {
+  margin-top: 10px;
+  height: 65vh !important;
+  transition: height 0.5s;
+}
+
+#calorie-count-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,12 +81,12 @@
   overflow: hidden;
 }
 
-.calorie-count-wrapper div {
+#calorie-count-wrapper div {
   width: 85%;
   font-family: 'Dangrek', cursive;
 }
 
-.calorie-count-wrapper div h1 {
+#calorie-count-wrapper div h1 {
   line-height: 1;
 }
 
@@ -72,6 +106,12 @@
   grid-template-columns: 1fr 1fr 1.25fr;
   column-gap: 30px;
   margin-top: 10px;
+  transition: 0.5s;
+}
+
+.tall .cal-count-third-row {
+  margin-top: 60px;
+  transition: 0.5s;
 }
 
 .cal-count-third-row h2 {
@@ -183,6 +223,12 @@ input:checked + .slider:before {
   position: relative;
   width: 45vh;
   height: 25vh;
+  transition: 0.5s;
+}
+
+.tall .macros-chart-wrapper {
+  height: 50vh;
+  transition: 0.5s;
 }
 
 .gram-micros-chart-wrapper {
