@@ -95,6 +95,7 @@ textarea {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .calorie-count-wrapper div {
@@ -231,14 +232,16 @@ input:checked + .slider:before {
   align-items: center;
   border-radius: 10px;
   position: relative;
-  width: 50vh;
+  width: 45vh;
   height: 25vh;
 }
 
-.gram-micros-chart-wrapper{
+.gram-micros-chart-wrapper {
+  width: 45vh;
 }
 
 .milligram-micros-chart-wrapper {
+  width: 46vh;
 }
 /*!**********************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/user-input.scss ***!
