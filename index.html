@@ -16,7 +16,6 @@
   <header>
     <h1 class="noselect">CalPal</h1>
     <nav>
-      <button id="toggle-bottom-charts">HI</button>
       <a href="https://github.com/fredchien3" target="_blank"><i class="fa-brands fa-github"></i></a>
       <a href="https://www.linkedin.com/in/fchien/"  target="_blank"><i class="fa-brands fa-linkedin"></i></a>
     </nav>
@@ -28,6 +27,12 @@
     <section id="right-half">
       <div class="selected-items-display-wrapper">
         <button id="reset-meal">Reset Meal</button>
+        <div class="toggle-container-wrapper" id="toggle-view-container-wrapper">
+          <label class="toggle-container">
+            <input id="toggle-view" type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
         <div id="selected-items-display"></div>
       </div>
       <div class="upper-charts-wrapper">
@@ -50,8 +55,8 @@
           </div>
         </div>
         <div id="macros-chart-wrapper-wrapper" class="tall">
-          <div id="toggle-macros-chart-container-wrapper">
-            <label id="toggle-macros-chart-container">
+          <div class="toggle-container-wrapper" id="toggle-macros-chart-container-wrapper">
+            <label class="toggle-container">
               <input id="toggle-macros-chart" type="checkbox">
               <span class="slider"></span>
             </label>

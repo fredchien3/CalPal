@@ -27,11 +27,13 @@ export const userInput = {
 
       const slideNum = document.createElement('div');
       slideNum.className = 'slide-number';
+      slideNum.classList.add('noselect');
       slideNum.innerText = stepNumber + ' / ' + numberOfSlides;
       slideDiv.appendChild(slideNum);
 
       const slideTitle = document.createElement('div');
       slideTitle.className = "step-title";
+      slideTitle.classList.add('noselect');
       slideTitle.innerText = step.name;
       slideDiv.appendChild(slideTitle);
       

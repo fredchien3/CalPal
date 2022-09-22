@@ -161,19 +161,25 @@
   z-index: 1;
 }
 
-#toggle-macros-chart-container {
+#toggle-view-container-wrapper {
+  position: absolute;
+  right: 0px;
+  
+}
+
+.toggle-container {
   position: relative;
   display: flex;
   width: 32px;
   height: 22px;
 }
 
-#toggle-macros-chart-container:hover .slider {
+.toggle-container:hover .slider {
   background-color: #a092be;
   border: 1px solid #a092be;
 }
 
-#toggle-macros-chart-container input {
+.toggle-container input {
   opacity: 0;
   width: 0;
   height: 0;

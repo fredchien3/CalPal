@@ -62,11 +62,11 @@ export const chartUtil = {
     toggleMacroChart.addEventListener('click', () => {
       this.toggleChart();
     });
-    const toggleBottomCharts = document.getElementById('toggle-bottom-charts');
+    const toggleView = document.getElementById('toggle-view');
     const topLeft = document.getElementById('calorie-count-wrapper');
     const topRight = document.getElementById('macros-chart-wrapper-wrapper');
     const bottomHalf = document.getElementById('lower-charts-wrapper');
-    toggleBottomCharts.addEventListener('click', () => {
+    toggleView.addEventListener('click', () => {
       topLeft.classList.toggle('tall');
       topRight.classList.toggle('tall');
       bottomHalf.classList.toggle('hide');
@@ -148,6 +148,14 @@ export const chartUtil = {
         plugins: { 
           legend: {
             display: false,
+          },
+          tooltip: {
+            callbacks: {
+              title: () => '',
+              label: function (ctx) {
+                return (` ${ctx.label}: ${ctx.raw} g`)
+              }
+            }
           }
         },
         scales: {
@@ -182,13 +190,17 @@ export const chartUtil = {
             label: 'Recommended Daily (g)',
             data: [25, 50],
             backgroundColor: this.purpleish,
-            barThickness: 10,
+            hoverColor: 'darkblue',
+            barThickness: 15,
+            borderRadius: 5,
           },
           {
             label: 'Input (g)',
             data: this.meal.gramMicros(),
-            barThickness: 15,
             backgroundColor: this.orangeish,
+            hoverColor: 'orange',
+            barThickness: 15,
+            borderRadius: 5,
           }
         ]
       },
@@ -235,13 +247,18 @@ export const chartUtil = {
             label: 'Recommended Daily (mg)',
             data: [300, 2300],
             backgroundColor: this.purpleish,
-            barThickness: 10,
+            hoverColor: 'darkblue',
+            barThickness: 15,
+            borderRadius: 5,
+
           },
           {
             label: 'Input (mg)',
             data: this.meal.milligramMicros(),
             backgroundColor: this.orangeish,
+            hoverColor: 'orange',
             barThickness: 15,
+            borderRadius: 5,
           }
         ]
       },

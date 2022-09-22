@@ -142,6 +142,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  position: relative;
 }
 
 #selected-items-display {
@@ -152,8 +153,8 @@
   flex-wrap: wrap;
   overflow-y: auto;
   margin-top: 4px;
-  border-top: 4px solid #67568c;
-  border-bottom: 4px solid #67568c;
+  border-top: 4px solid #f4effc;
+  border-bottom: 4px solid #f4effc;
 }
 
 #selected-items-display button {
