@@ -75,7 +75,6 @@ export const userInput = {
     button.addEventListener('click', () => {
       this.meal.popItem(itemObject);
       this.selectedItemsDisplay.removeChild(button);
-      
     })
   },
 

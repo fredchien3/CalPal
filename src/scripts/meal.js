@@ -1,4 +1,4 @@
-import { chartUtil } from "./chart-util";
+ 45import { chartUtil } from "./chart-util";
 
 export class Meal {
   constructor () {

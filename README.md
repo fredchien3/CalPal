@@ -32,7 +32,94 @@ The goal of the app is to empower users to make more informed nutritional decisi
 
 ## Technical Implementation Details
 
+The data comes from a JSON file containing each step of the CAVA ordering process. Each step holds an array of all its food choices, and each choice holds its nutrient information.
 
+```json
+// Example food item:
+{
+  "Item": "Braised Lamb",
+  "Calories": "210",
+  "Calories from fat": "110",
+  "Total Fat": "12",
+  "Saturated Fat": "6",
+  "Trans fat": "0",
+  "Cholestrol": "65",
+  "Sodium": "240",
+  "Carbohydrates": "2",
+  "Fiber": "1",
+  "Sugar": "0",
+  "Protein": "24"
+}
+```
+
+The the user inputs interface is dynamically generated from the JSON file. 
+
+```javascript
+// Each slide div is generated based on the JSON file's steps.
+setupUserInputSlides () {
+  const numberOfSlides = cava.steps.length;
+
+  cava.steps.forEach((step, i) => {
+    const stepNumber = i + 1;
+
+    const slideDiv = document.createElement('div');
+    slideDiv.className = 'user-input-slide-div';
+
+    const slideNum = document.createElement('div');
+    slideNum.className = 'user-input-slide-number';
+    slideNum.classList.add('noselect');
+    slideNum.innerText = stepNumber + ' / ' + numberOfSlides;
+    slideDiv.appendChild(slideNum);
+
+    const slideTitle = document.createElement('div');
+    slideTitle.className = "step-title";
+    slideTitle.classList.add('noselect');
+    slideTitle.innerText = step.name;
+    slideDiv.appendChild(slideTitle);
+    
+    const stepChoices = document.createElement('div');
+    stepChoices.className = 'choices-div'
+    step.items.forEach(itemObject => {
+      stepChoices.appendChild(this.generateButton(itemObject));
+    })
+    slideDiv.appendChild(stepChoices);
+    
+    this.userInputSlideshowWrapper.appendChild(slideDiv);
+  })
+  this.setupPrevAndNextButtons();
+  this.setupIndexDots(numberOfSlides);
+},
+
+// Then, the slide is populated with a button for each food item.
+generateButton (itemObject) {
+  const button = document.createElement('button');
+  button.className = itemObject.Item;
+  button.classList.add("user-input-button");
+  button.innerText = itemObject.Item;
+  button.addEventListener('click', () => {
+    this.handleItemSelect(itemObject);
+  })
+  return button;
+}
+
+// When a food item button is clicked, it does two things: 
+// 1. It adds the corresponding food item's nutritional info to the behind-the-scenes Meal class
+// 2. It creates a corresponding button in the selected-items-display
+handleItemSelect (itemObject) {
+  this.meal.pushItem(itemObject);
+  const ul = document.createElement('ul')
+  const button = document.createElement('button');
+  button.className = itemObject.Item;
+  button.classList.add("user-input-button");
+  button.innerText = itemObject.Item;
+  this.selectedItemsDisplay.appendChild(button);
+  this.selectedItemsDisplay.scrollTop = this.selectedItemsDisplay.scrollHeight;
+  button.addEventListener('click', () => {
+    this.meal.popItem(itemObject);
+    this.selectedItemsDisplay.removeChild(button);
+  })
+},
+```
 
 ## Future Functionality
 
@@ -41,6 +128,8 @@ The goal of the app is to empower users to make more informed nutritional decisi
 - Saving functionality, allowing users to save their built bowls
 
 - A comparison feature that allows users to view different saved bowls side-by-side, even across different chains
+
+- Allergy indicators on the food item buttons
 
 ## Implementation Timeline
 
