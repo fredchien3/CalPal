@@ -1,36 +1,46 @@
 
 # CalPal
 
-A JavaScript Project
-
-## Wireframes
-
-<img src="./wireframe.png" width="600" alt="CalPal wireframe rendering">
-
-## Background
-
-CalPal is a data visualization webapp that allows users to view the nutritional value of their custom meals.
+[CalPal](https://fredchien3.github.io/CalPal/) is a data visualization webapp that allows users to view the nutritional value of their custom meals.
 It receives the user's selection of bowl choices and displays the total calorie, macronutrient, and micronutrient breakdowns.
 The goal of the app is to empower users to make more informed nutritional decisions in support of their goals.
 
-## Functionality & MVPs
 
-In CalPal, users will be able to:
-- Select from a list of options at each step of the ordering process
-- View the visualation of calories and macronutrients 
+## Instructions
+
+- Select from a list of food items, step-by-step:
+
+<img src="src/gifs/1-user-input-gif.gif" width="300" alt="user input gif">
+
+- Deselect items if you change your mind:
+
+<img src="src/gifs/2-deselecting.gif" width="400" alt="deselection gif">
+
 - Toggle the view of macronutrients between a pie chart (proportion) and bar chart (amount in grams)
+
+<img src="src/gifs/3-toggle-macro.gif" height="300" alt="toggle macros chart gif">
+
 - Hide/show the two micronutrients charts
-Planned features going forward include:
-- Multiple build-your-bowl chains to select from
-- Saving functionality, allowing users to save their built bowls
-- A comparison feature that allows users to view different saved bowls side-by-side, even across different chains
-- A production README
+
+<img src="src/gifs/4-toggle-micros.gif" width="400" alt="toggle micros charts gif">
 
 ## Technologies, Libraries, APIs
 
-- JavaScript
-- Canvas for rendering the nutritional charts
-- Possibly D3 for rendering the nutritional charts
+- Vanilla JavaScript: for handling buttons, toggles, and food item tallying 
+- Webpack: compiling stylesheets and JS script files
+- Chart.js: rendering the nutritional charts using Canvas
+
+## Technical Implementation Details
+
+
+
+## Future Functionality
+
+- Multiple build-your-bowl chains to select from
+
+- Saving functionality, allowing users to save their built bowls
+
+- A comparison feature that allows users to view different saved bowls side-by-side, even across different chains
 
 ## Implementation Timeline
 
@@ -40,4 +50,4 @@ Planned features going forward include:
  - ~~Monday: Populate food data and backend logic for calculating outputs~~
  - ~~Tuesday: Build out frontend~~
  - ~~Wednesday: Polish~~
- - Thursday Morning: Sip champagne
+ - Thursday Morning: Deploy on GitHub, sip champagne
