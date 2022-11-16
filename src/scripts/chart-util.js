@@ -63,12 +63,10 @@ export const chartUtil = {
       this.toggleChart();
     });
     const toggleView = document.getElementById('toggle-view');
-    const topLeft = document.getElementById('calorie-count-wrapper');
-    const topRight = document.getElementById('macros-chart-wrapper-wrapper');
+    const upperChartsWrapper = document.getElementById('upper-charts-wrapper');
     const bottomHalf = document.getElementById('lower-charts-wrapper');
     toggleView.addEventListener('click', () => {
-      topLeft.classList.toggle('tall');
-      topRight.classList.toggle('tall');
+      upperChartsWrapper.classList.toggle('tall');
       bottomHalf.classList.toggle('hide');
     })
   },

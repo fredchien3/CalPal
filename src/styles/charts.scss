@@ -1,26 +1,33 @@
 #right-half {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  padding-top: 20px;
-  padding-right: 20px;
-}
-
-.upper-charts-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 20px;
-  width: 100%;
   height: 100%;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  box-sizing: border-box;
+  padding: 12px 0.5% 28px 0;
+  overflow: hidden;
 }
 
+.charts-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 99%;
+  height: 80%;
+  margin-top: 6px;
+}
 
+#upper-charts-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  height: 49%;
+  transition: 0.5s;
+}
 
-.upper-charts-wrapper > div {
+#upper-charts-wrapper > div {
   border: 1px solid #67568c;
   box-shadow: 6px 6px #67568c;
   display: flex;
@@ -28,10 +35,21 @@
   align-items: center;
   border-radius: 10px;
   position: relative;
-  width: 50vh;
-  height: 30vh;
+  width: 49%;
+  height: 100%;
   overflow: hidden;
   transition: height 0.5s;
+}
+
+#lower-charts-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;  
+  width: 100%;
+  height: 48%;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.50s;
 }
 
 #lower-charts-wrapper > div  {
@@ -42,23 +60,9 @@
   align-items: center;
   border-radius: 10px;
   position: relative;
-  width: 50vh;
-  height: 30vh;
-  overflow: hidden;
-}
-
-#lower-charts-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;  
-  gap: 20px;
-  width: 100%;
+  width: 49%;
   height: 100%;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  visibility: visible;
-  opacity: 1;
-  transition: 0.50s;
+  overflow: hidden;
 }
 
 .hide {
@@ -66,10 +70,12 @@
   opacity: 0 !important;
 }
 
-
 .tall {
-  height: 65vh !important;
-  transition: height 0.5s
+  height: 100% !important;
+}
+
+#lower-charts-wrapper.hide {
+  height: 0 !important;
 }
 
 #calorie-count-wrapper {

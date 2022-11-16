@@ -52,26 +52,33 @@ textarea {
 #right-half {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  padding-top: 20px;
-  padding-right: 20px;
-}
-
-.upper-charts-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 20px;
-  width: 100%;
   height: 100%;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  box-sizing: border-box;
+  padding: 12px 0.5% 28px 0;
+  overflow: hidden;
 }
 
+.charts-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 99%;
+  height: 80%;
+  margin-top: 6px;
+}
 
+#upper-charts-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  height: 49%;
+  transition: 0.5s;
+}
 
-.upper-charts-wrapper > div {
+#upper-charts-wrapper > div {
   border: 1px solid #67568c;
   box-shadow: 6px 6px #67568c;
   display: flex;
@@ -79,10 +86,21 @@ textarea {
   align-items: center;
   border-radius: 10px;
   position: relative;
-  width: 50vh;
-  height: 30vh;
+  width: 49%;
+  height: 100%;
   overflow: hidden;
   transition: height 0.5s;
+}
+
+#lower-charts-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;  
+  width: 100%;
+  height: 48%;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.50s;
 }
 
 #lower-charts-wrapper > div  {
@@ -93,23 +111,9 @@ textarea {
   align-items: center;
   border-radius: 10px;
   position: relative;
-  width: 50vh;
-  height: 30vh;
-  overflow: hidden;
-}
-
-#lower-charts-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;  
-  gap: 20px;
-  width: 100%;
+  width: 49%;
   height: 100%;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  visibility: visible;
-  opacity: 1;
-  transition: 0.50s;
+  overflow: hidden;
 }
 
 .hide {
@@ -117,10 +121,12 @@ textarea {
   opacity: 0 !important;
 }
 
-
 .tall {
-  height: 65vh !important;
-  transition: height 0.5s
+  height: 100% !important;
+}
+
+#lower-charts-wrapper.hide {
+  height: 0 !important;
 }
 
 #calorie-count-wrapper {
@@ -299,7 +305,7 @@ input:checked + .slider:before {
 #left-half {
   display: flex;
   flex-direction: column;
-  padding-top: 50px;
+  height: 100%;
 }
 
 #slideshow-wrapper {
@@ -309,8 +315,8 @@ input:checked + .slider:before {
   align-items: center;
   background-color: #f4effc;
   border-radius: 25px;
-  margin: 0px 50px 0px 50px;
   height: 100%;
+  margin: 24px 30px 30px 24px;
   box-shadow: 10px 10px #67568c;
 }
 
@@ -444,11 +450,12 @@ input:checked + .slider:before {
   flex-direction: column;
   align-items: flex-start;
   position: relative;
+  height: 19%;
 }
 
 #selected-items-display {
   width: 100%;
-  height: 70px;
+  height: 75%;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -525,7 +532,8 @@ input:checked + .slider:before {
   \*************************************************************************************************************************************/
 body {
   background-color: white;
-  height: 80vh;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
   position: relative;
 }
@@ -535,8 +543,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 26px 10px 26px;
+  padding: 0 20px;
   border-bottom: 6px solid #1f1235;
+  height: 10%;
 }
 
 header h1 {
@@ -563,7 +572,7 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100%;
+  height: 90%;
 }
 
 main > section {
