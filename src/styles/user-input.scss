@@ -102,11 +102,11 @@
 
 .choices-div {
   display: flex; 
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
   width: 85%;
   height: 70%;
-  flex-wrap: wrap;
   margin: auto;
 }
 
@@ -124,7 +124,7 @@
   margin: 10px 10px 10px 10px;
   transition: 0.2s;
   width: 20%;
-  height: 18%;
+  height: 24%;
 }
 
 .user-input-button:hover {
@@ -164,13 +164,16 @@
 #selected-items-display button {
   border-radius: 10px;
   border-width: 2px;
-  height: 45px;
-  width: 100px;
-  font-size: 12px;
-  margin: 5px 0px 5px 10px;
-  translate: none;
-  white-space: initial;
+  height: 45%;
+  width: calc(100%/5.2);
+  font-size: 13px;
+  margin: 2px 4px 2px 0;
+  padding: 0 6px;
+
+  display: block;
+  white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #selected-items-display button:hover {

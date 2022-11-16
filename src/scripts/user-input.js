@@ -54,7 +54,6 @@ export const userInput = {
   
   generateButton (itemObject) {
     const button = document.createElement('button');
-    button.className = itemObject.Item;
     button.classList.add("user-input-button");
     button.innerText = itemObject.Item;
     button.addEventListener('click', () => {
@@ -65,9 +64,7 @@ export const userInput = {
 
   handleItemSelect (itemObject) {
     this.meal.pushItem(itemObject);
-    const ul = document.createElement('ul')
     const button = document.createElement('button');
-    button.className = itemObject.Item;
     button.classList.add("user-input-button");
     button.innerText = itemObject.Item;
     this.selectedItemsDisplay.appendChild(button);
