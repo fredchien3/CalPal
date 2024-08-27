@@ -504,6 +504,16 @@ input:checked + .slider:before {
   color: black;
 }
 
+.toggle-view-label {
+  position: absolute;
+  right: 36px;
+  color: #67568c;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
 #selected-items-display::-webkit-scrollbar {
   width: 10px;
 }
