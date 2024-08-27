@@ -38,20 +38,20 @@ export const userInput = {
       slideTitle.classList.add('noselect');
       slideTitle.innerText = step.name;
       slideDiv.appendChild(slideTitle);
-      
+
       const stepChoices = document.createElement('div');
       stepChoices.className = 'choices-div'
       step.items.forEach(itemObject => {
         stepChoices.appendChild(this.generateButton(itemObject));
       })
       slideDiv.appendChild(stepChoices);
-      
+
       this.userInputSlideshowWrapper.appendChild(slideDiv);
     })
     this.setupPrevAndNextButtons();
     this.setupIndexDots(numberOfSlides);
   },
-  
+
   generateButton (itemObject) {
     const button = document.createElement('button');
     button.classList.add("user-input-button");
@@ -112,7 +112,6 @@ export const userInput = {
 
     const welcomeDots = document.getElementsByClassName('welcome-dot');
     for (let i = 0; i < 4; i++) {
-      console.log(welcomeDots[i])
       welcomeDots[i].addEventListener('click', () => this.currentSlide(i+1, true));
     }
   },
@@ -148,28 +147,28 @@ export const userInput = {
       for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
       }
-      
+
       for (let i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" welcome-active", "");
       }
-      
+
       slides[this.welcomeSlideIdx-1].style.display = "flex";
       dots[this.welcomeSlideIdx-1].className += " welcome-active";
     } else {
       let slides = document.getElementsByClassName('user-input-slide-div');
       let dots = document.getElementsByClassName('dot');
-      
+
       if (num > slides.length) this.userInputSlideIdx = 1;
       if (num < 1) { this.userInputSlideIdx = slides.length };
-      
+
       for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
       }
-      
+
       for (let i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
       }
-      
+
       slides[this.userInputSlideIdx-1].style.display = "flex";
       dots[this.userInputSlideIdx-1].className += " active";
     }

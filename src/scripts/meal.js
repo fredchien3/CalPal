@@ -16,7 +16,7 @@ export class Meal {
     this.totalSugar = 0;      // g
     this.itemObjects = [];
   }
-  
+
   reset () {
     this.setInstanceVariables();
     chartUtil.refreshAll();
@@ -48,10 +48,10 @@ export class Meal {
   calories () {
     return this.totalCals;
   }
-  
+
   macros () {
     if (this.totalProtein === 0 && this.totalFat === 0 && this.totalCarbs === 0) {
-      return [];      
+      return [];
     } else {
       return [this.totalProtein, this.totalFat, this.totalCarbs];
     }
