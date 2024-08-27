@@ -1,5 +1,5 @@
 {
-  "name": "project_js",
+  "name": "CalPal",
   "version": "1.0.0",
   "description": "A JavaScript Project",
   "main": "index.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fredchien3/project_js.git"
+    "url": "git+https://github.com/fredchien3/CalPal.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/fredchien3/project_js/issues"
+    "url": "https://github.com/fredchien3/CalPal/issues"
   },
-  "homepage": "https://github.com/fredchien3/project_js#readme",
+  "homepage": "https://github.com/fredchien3/CalPal#readme",
   "dependencies": {
     "@babel/core": "^7.19.1",
     "@babel/preset-env": "^7.19.1",
